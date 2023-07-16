@@ -1,6 +1,7 @@
 python -m venv myvenv
 pip install django
 pip install pytest_django
+pip install pillow
 django-admin startproject projeto_core .  
 django-admin startapp app01 
 
