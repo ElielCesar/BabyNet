@@ -14,20 +14,28 @@
 
 <body class="container-fluid bg-light">
 
-    <section class="container bg-white mt-5 rounded shadow" style="width: 50vw; height: 500px;">
-        <div class="py-5">
-            <form action="" method="post" class="form mt-5" autocomplete="off">
-                {% csrf_token %}
-                {{form}}
-                <button class="btn btn-primary w-100 mt-3" type="submit">Cadastrar</button>
+    <section class="container bg-white mt-5 rounded shadow col-md-6" style="height: 550px;">
+        <div class="row py-5">
+            <div class="col-sm-12" style="width: 100vw;">
+                {% if sucesso %}
+                    <div class="alert alert-success" role="alert">
+                        Presente cadastrado com sucesso, muito obrigado!
+                    </div>
+                {% endif %}
 
-            </form>
+                <form action="{% url 'valida_cadastro_presente' %}" method="post" class="form mt-3" autocomplete="off">
+                    {% csrf_token %}
+                    {{form}}
+                    <button class="btn btn-primary w-100 mt-3" type="submit">Cadastrar</button>
+                </form>
 
-            <div class="text-center mt-3">
-                <img class="img-fluid" src="{% static '\icons\bebe.png' %}" style="width: 60px; height: 60px;">
+                <div class="text-center mt-3">
+                    <img class="img-fluid" src="{% static '\icons\bebe.png' %}" style="width: 70px; height: 70px;">
+                </div>
+
+                <a href="{% url 'home' %}" class="btn btn-secondary"><i class="bi bi-arrow-left-square"></i>&nbsp;Voltar</i></a>
             </div>
-
-        </div>
+        </div><!--Fim da row-->
     </section>
 
 
