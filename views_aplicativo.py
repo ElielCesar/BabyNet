@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib import messages
 from .models import Presente
 from .forms import MF_CadastrarPresente
 
@@ -16,5 +17,15 @@ def presentear(request):
     return render(request, 'presentear.html', {'form':form})
 
 
+def valida_cadastro_presente(request):
+    if request.method == 'POST':
+        form = MF_CadastrarPresente(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'presentear.html', {'form': MF_CadastrarPresente(), 'sucesso':True})
 
+    else:
+        form = MF_CadastrarPresente()
+
+    return render(request, 'presentear.html', {'form': form})
 
