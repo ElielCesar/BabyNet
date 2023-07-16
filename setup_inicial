@@ -8,4 +8,6 @@ python .\manage.py makemigrations
 python .\manage.py migrate
 python .\manage.py createsuperuser
 
-
+## SOMENTE APÓS COPIAR TODOS OS ARQUIVOS DE MODELS, REFAZER AS MIGRATES
+python .\manage.py makemigrations
+python .\manage.py migrate
