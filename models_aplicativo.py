@@ -13,6 +13,19 @@ class Presente(models.Model):
     def __str__(self):
         return self.nome
 
+class PessoaPresente(models.Model):
+    nome_presente = models.ForeignKey(Presente, on_delete=models.CASCADE)
+    quantidade_presenteada = models.PositiveIntegerField(verbose_name='Quantidade',
+          validators = [ MaxValueValidator(50),
+                         MinValueValidator(1) ] )
+    nome_pessoa = models.CharField(verbose_name='Nome de quem vai dar o presente', max_length=200)
+
+    def __str__(self):
+        return f'{self.nome_pessoa} : {self.nome_presente}'
+    
+    class Meta:
+        verbose_name = 'Pessoa Presente'
+        verbose_name_plural = 'Pessoas Presente'
 
 
 
