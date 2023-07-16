@@ -44,48 +44,18 @@
 
     <!--Itens cadastrados no Django Admin-->
     <section class="container mt-2 rounded mb-5">
-        
+        {% for presente in presentes %}
         <div class="row justify-content-between">
             <div class="card my-2" style="width: 15rem;">
-                <img src="{% static '\icons\fundo.png' %}" class="card-img-top">
+                <img src="/media/{{presente.imagem}}" class="card-img-top">
                 <div class="card-body">
-                <h5 class="card-title">Card title</h5> <!--DJANGO TAG PARA VAR-->
-                <p class="card-text">Descricão do Item</p><!--DJANGO TAG PARA VAR-->
-                <p class="card-text">Ainda faltam: </p><!--DJANGO TAG PARA VAR-->
+                <h5 class="card-title">{{presente.nome}}</h5>
+                <p class="card-text">{{presente.detalhes}}</p>
+                <p class="card-text">Ainda faltam: {{presente.quantidade}}</p>
                 <a href="#" class="btn btn-primary w-100">Presentear</a>
                 </div>
             </div>
-
-            <div class="card my-2" style="width: 15rem;">
-                <img src="{% static '\icons\fundo.png' %}" class="card-img-top">
-                <div class="card-body">
-                <h5 class="card-title">Card title</h5> <!--DJANGO TAG PARA VAR-->
-                <p class="card-text">Descricão do Item</p><!--DJANGO TAG PARA VAR-->
-                <p class="card-text">Ainda faltam: </p><!--DJANGO TAG PARA VAR-->
-                <a href="#" class="btn btn-primary w-100">Presentear</a>
-                </div>
-            </div>
-
-            <div class="card my-2" style="width: 15rem;">
-                <img src="{% static '\icons\fundo.png' %}" class="card-img-top">
-                <div class="card-body">
-                <h5 class="card-title">Card title</h5> <!--DJANGO TAG PARA VAR-->
-                <p class="card-text">Descricão do Item</p><!--DJANGO TAG PARA VAR-->
-                <p class="card-text">Ainda faltam: </p><!--DJANGO TAG PARA VAR-->
-                <a href="#" class="btn btn-primary w-100">Presentear</a>
-                </div>
-            </div>
-
-            <div class="card my-2" style="width: 15rem;">
-                <img src="{% static '\icons\fundo.png' %}" class="card-img-top">
-                <div class="card-body">
-                <h5 class="card-title">Card title</h5> <!--DJANGO TAG PARA VAR-->
-                <p class="card-text">Descricão do Item</p><!--DJANGO TAG PARA VAR-->
-                <p class="card-text">Ainda faltam: </p><!--DJANGO TAG PARA VAR-->
-                <a href="#" class="btn btn-primary w-100">Presentear</a>
-                </div>
-            </div>
-
+        {% endfor %}            
         </div><!--FIM DA ROW-->
     </section>
 
