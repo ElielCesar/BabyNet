@@ -3,12 +3,9 @@ pip install django
 pip install pytest_django
 pip install pillow
 django-admin startproject projeto_core .  
-django-admin startapp app01 
-
-
-
-
-
-
+django-admin startapp app01
+python .\manage.py makemigrations
+python .\manage.py migrate
+python .\manage.py createsuperuser
 
 
