@@ -10,29 +10,24 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 </head>
-<body class="container-fluid bg-light">
+<body class="container-fluid bg-light " style="width: 100vw;">
 
-    <section class="container bg-primary text-white text-center rounded mt-2">
+    <header class="container bg-primary text-white rounded mt-2">
         <div class="row py-2">
-            <div class="col-1"><img src="{% static '\icons\bebe.png' %}" style="width: 60px; height: 60px;"></div>
-            <div class="col-1"><img src="{% static '\icons\mamadeira.png' %}" style="width: 60px; height: 60px;"></div>
-            <div class="col-1"><img src="{% static '\icons\carrinho.png' %}" style="width: 60px; height: 60px;"></div>
-            <div class="col-9"><h1>Seja bem vindo ao Chá do Pedro Rafael</h1></div>
+            <div class="col-sm col-md-1 text-center"><img class="img-fluid" src="{% static '\icons\bebe.png' %}" style="width: 60px; height: 60px;"></div>
+            <div class="d-sm-block d-none col-md-1 ps-0"><img src="{% static '\icons\mamadeira.png' %}" style="width: 60px; height: 60px;"></div>
+            <div class="d-sm-block d-none col-md-1 ps-0"><img src="{% static '\icons\carrinho.png' %}" style="width: 60px; height: 60px;"></div>
+            <div class="col-sm col-md-8"><h1 class="text-sm">Bem-vindo ao Chá do Pedro Rafael!</h1></div>
         </div>
-        <!--TO DO
-            - em telas de celular, ocultar mamadeira e carrinho
-            - em telas de celular, ocultar imagem do convite
-            - em telas de celular, reduzir a fonte do titulo
-            - em telas de celular, melhorar alinhamento do texto
-        -->
-    </section>
+    </header>
 
+    <!--Convite-->
     <section class="container bg-white mt-2 rounded shadow">
         <div class="row">
-            <div class="col-3 my-2"><img src="{% static '\img\convite1.jpg' %}" style="width: 250px; height: 260px;"></div>
-            <div class="col-8">
-                <h4 class="my-4">Voce é nosso convidado para o chá de bebe de Pedro Rafael</h4>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda dicta corporis provident minima tempore ullam nostrum omnis iste ipsam eveniet.</p>
+            <div class="d-sm-block d-none col-3 my-2"><img class="rounded" src="{% static '\img\convite1.jpg' %}" style="width: 250px; height: 260px;"></div>
+            <div class="col-sm-12 col-md-8">
+                <p class="my-4 fs-5">Temos o prazer de convidá-lo para o chá de bebê de Pedro Rafael. Sua presença será muito apreciada neste momento tão especial!</p>
+                <p>Contamos com sua presença!</p>
                 <h6 class="my-4"><i class="bi bi-geo-alt-fill">&nbsp;Local: Ariquemes, Bairro Setor 2, Rua Canário</i></h6>
                 <h6 class="my-4"><i class="bi bi-calendar-check">&nbsp;Data: 30/09/2023</i></h6>
                 <h6 class="my-4"><i class="bi bi-alarm">&nbsp;Horário: Das 19:00 às 22:00</i></h6>
@@ -40,20 +35,14 @@
         </div>
     </section>
 
-    <section class="container mt-2 bg-primary text-white text-center rounded">
-
-        <div class="row">
-            <div class="col-4"><img src="{% static '\icons\presente.png' %}" style="width: 60px; height: 60px;"></div>
-            <div class="col-4"><h2>Escolha seu presente</h2></div>
-            <div class="col-4"><img src="{% static '\icons\presente.png' %}" style="width: 60px; height: 60px;"></div>
+    <!--Header de presente-->
+    <section class="container mt-2 py-2 bg-primary text-white rounded">
+        <div class="row m-auto text-center" style="width: 60%;">
+            <div class="col-sm-12"><h2 class="text-sm">Escolha seu presente</h2></div>
         </div>
-        <!--TO DO
-            - em telas de celular, reduzir o tamanho dos icones dos presentes
-            - alinhar icones de presente bem perto do texto
-        -->
     </section>
 
-    <!--Itens cadastrados no Admin-->
+    <!--Itens cadastrados no Django Admin-->
     <section class="container mt-2 rounded mb-5">
         
         <div class="row justify-content-between">
@@ -97,9 +86,15 @@
                 </div>
             </div>
 
-        </div>
+        </div><!--FIM DA ROW-->
     </section>
+
     
+    <footer>
+        <div class="container bg-dark text-white text-center rounded">
+            <p class="py-2">@2023</p>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
