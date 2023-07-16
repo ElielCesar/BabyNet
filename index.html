@@ -44,16 +44,16 @@
 
     <!--Itens cadastrados no Django Admin-->
     <section class="container mt-2 rounded mb-5">
-        <div class="row justify-content-start">
+        <div class="row justify-content-between">
         {% for presente in presentes %}
         
-            <div class="card my-2 mx-2" style="width: 17rem; height: 32rem;">
+            <div class="card my-2 mx-2" style="width: 16rem; height: 32rem;">
                 <img src="/media/{{presente.imagem}}" class="card-img-top">
                 <div class="card-body" style="position: relative;">
                 <h5 class="card-title">{{presente.nome}}</h5> 
                 <p class="card-text">{{presente.detalhes}}</p>
                 <p class="card-text mb-0"><strong> Ainda faltam:</strong> {{presente.quantidade}}</p>
-                <a href="#" class="btn btn-primary w-75 mb-2" style="position: absolute; bottom: 0; margin: auto;">Presentear</a>
+                <a href="{% url 'presentear' %}" class="btn btn-primary w-75 mb-2" style="position: absolute; bottom: 0; margin: auto;">Presentear</a>
                 </div>
             </div>
         {% endfor %}
