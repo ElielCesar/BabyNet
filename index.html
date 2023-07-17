@@ -46,20 +46,21 @@
     <section class="container mt-2 rounded mb-5">
         <div class="row justify-content-between">
         {% for presente in presentes %}
-        
-            <div class="card my-2 mx-2" style="width: 16rem; height: 32rem;">
-                <img src="/media/{{presente.imagem}}" class="card-img-top">
-                <div class="card-body" style="position: relative;">
-                <h5 class="card-title">{{presente.nome}}</h5> 
-                <p class="card-text">{{presente.detalhes}}</p>
-                <p class="card-text mb-0"><strong>Ainda faltam</strong>: {{presente.quantidade_desejada}}</p>
-                <!--
-                <p class="card-text mb-0">Já ganhamos: {{presente.quantidade_recebida}}</p>
-                <p class="card-text mb-0"><strong> Ainda faltam: {{presente.quantidade_restante}}</strong></p>
-                -->
-                <a href="{% url 'presentear' %}" class="btn btn-primary w-75 mb-2" style="position: absolute; bottom: 0; margin: auto;">Presentear</a>
+            {%if presente.quantidade_recebida < presente.quantidade_desejada %}
+                <div class="card my-2 mx-2" style="width: 16rem; height: 32rem;">
+                    <img src="/media/{{presente.imagem}}" class="card-img-top">
+                    <div class="card-body" style="position: relative;">
+                    <h5 class="card-title">{{presente.nome}}</h5> 
+                    <p class="card-text">{{presente.detalhes}}</p>
+                    <p class="card-text mb-0"><strong>Meta</strong>: {{presente.quantidade_desejada}}</p>
+                    <p class="card-text mb-0"><strong>Já ganhamos</strong>: {{presente.quantidade_recebida}}</p>
+                    <!--
+                    <p class="card-text mb-0"><strong> Ainda faltam: {{presente.quantidade_restante}}</strong></p>
+                    -->
+                    <a href="{% url 'presentear' %}" class="btn btn-primary w-75 mb-2" style="position: absolute; bottom: 0; margin: auto;">Presentear</a>
+                    </div>
                 </div>
-            </div>
+            {% endif %}
         {% endfor %}
 
         </div><!--FIM DA ROW-->
