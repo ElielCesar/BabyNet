@@ -1,7 +1,7 @@
 # BabyNet: Sistema de Chá de Bebê Online
 
 ## Visão Geral
-BabyNet é um sistema que visa facilitar o gerenciamento de presentes para um chá de bebê. Ele fornece um painel intuitivo e dinâmico para acompanhar os presentes que serão dados e a quantidade que será recebida. 
+BabyNet é um sistema criado com Python e Django que visa facilitar o gerenciamento de presentes para um chá de bebê. Ele fornece um painel intuitivo e dinâmico para acompanhar os presentes que serão dados e a quantidade que será recebida. 
 
 O BabyNet é um aplicativo baseado em Django que facilita o acompanhamento dos presentes para um chá de bebê, tornando essa experiência prazerosa e sem estresse.
 
