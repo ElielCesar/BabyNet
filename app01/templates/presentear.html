@@ -14,13 +14,13 @@
 
 <body class="container-fluid bg-light">
 
-    <section class="container bg-white mt-5 rounded shadow col-md-6" style="height: 550px;">
+    <section class="container bg-white mt-5 rounded shadow col-md-6" style="height: 540px;">
         <div class="row py-5">
             <div class="col-sm-12" style="width: 100vw;">
-                {% if sucesso %}
-                    <div class="alert alert-success" role="alert">
-                        Presente cadastrado com sucesso, muito obrigado!
-                    </div>
+                {% if messages %}
+                    {% for msg in messages %}
+                        <div class="alert {{msg.tags}}" role="alert">{{msg}}</div>
+                    {% endfor %}
                 {% endif %}
 
                 <form action="{% url 'valida_cadastro_presente' %}" method="post" class="form mt-3" autocomplete="off">

@@ -3,7 +3,7 @@ from .models import Presente, PessoaPresente
 
 # Register your models here.
 class PresenteAdmin(admin.ModelAdmin):
-    list_display = ['nome']
+    list_display = ['nome', 'quantidade_desejada', 'quantidade_recebida', 'quantidade_restante', 'img_presente']
     search_fields = ['nome']
 
 admin.site.register(Presente, PresenteAdmin)

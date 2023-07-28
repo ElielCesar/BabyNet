@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
+from django.utils.safestring import mark_safe
 
 # Create your models here.
 class Presente(models.Model):
@@ -15,6 +16,10 @@ class Presente(models.Model):
 
     def __str__(self):
         return self.nome
+    
+    @mark_safe
+    def img_presente(self):
+        return f"<img width='60px' src='{self.imagem.url}'>"
 
 
 class PessoaPresente(models.Model):
