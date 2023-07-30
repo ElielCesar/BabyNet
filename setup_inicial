@@ -1,8 +1,6 @@
 1 - python -m venv myvenv
 2 - .\myvenv\Scripts\activate
 3 - pip install django pytest_django pillow
-4 - django-admin startproject projeto_core .  
-5 - django-admin startapp app01
 
 
 ## SOMENTE APÓS EXECUTAR TODOS OS PASSOS ANTERIORES
