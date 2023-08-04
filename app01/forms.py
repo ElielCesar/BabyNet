@@ -12,14 +12,3 @@ class MF_CadastrarPresente(forms.ModelForm):
         'nome_pessoa': forms.TextInput(attrs={'class':'form-control mt-2'}),
         }
 
-
-
-
-
-
-
-
-
-
-
-
