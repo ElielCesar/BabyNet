@@ -16,9 +16,9 @@ def page_not_found(request, slug):
     return render(request, '404.html', status=404)
 
 
-def presentear(request):
-    form = MF_CadastrarPresente()
-    return render(request, 'presentear.html', {'form':form})
+def presentear(request, id):
+    form = MF_CadastrarPresente(initial={'nome_presente': id })
+    return render(request, 'presentear.html', {'form':form}) 
 
 
 def valida_cadastro_presente(request):

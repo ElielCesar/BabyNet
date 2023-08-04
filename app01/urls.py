@@ -6,7 +6,7 @@ from . import views
 urlpatterns = [
     # joga diretamente para a home
     path('', views.home, name='home'),
-    path('presentear/', views.presentear, name='presentear'),
+    path('presentear/<int:id>/', views.presentear, name='presentear'),
     path('valida_cadastro_presente/', views.valida_cadastro_presente, name='valida_cadastro_presente'),
     # qualquer outra url jogue para 404
     path('<path:slug>/', views.page_not_found),
