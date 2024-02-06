@@ -1,12 +1,11 @@
 from django.shortcuts import render
-from django.core.exceptions import ValidationError
 from django.contrib import messages
 from django.contrib.messages import constants
 from django.db import DatabaseError
 from .models import Presente
 from .forms import MF_CadastrarPresente
 
-# Create your views here.
+# Views do Sistema
 def home(request):
     presentes = Presente.objects.all()
     return render(request, 'index.html', {'presentes':presentes})

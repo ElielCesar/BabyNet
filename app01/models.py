@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-from django.db.models.signals import post_save, pre_save
+from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.utils.safestring import mark_safe
 
@@ -25,8 +25,7 @@ class Presente(models.Model):
 class PessoaPresente(models.Model):
     nome_presente = models.ForeignKey(Presente, on_delete=models.CASCADE)
     quantidade_presenteada = models.PositiveIntegerField(verbose_name='Quantidade',
-          validators = [ MaxValueValidator(50),
-                         MinValueValidator(1) ] )
+        validators = [MaxValueValidator(50),MinValueValidator(1)])
     nome_pessoa = models.CharField(verbose_name='Nome de quem vai dar o presente', max_length=200)
 
     def __str__(self):
@@ -45,16 +44,8 @@ class PessoaPresente(models.Model):
         return self.nome_presente.quantidade_restante # vou usar isso para fazer a conta
     
 @receiver(pre_save, sender=PessoaPresente)
-def antes_de_salvar_presente(sender, instance, **kwargs):
-    quantidade_desejada = instance.qtd_desejada # não pode alterar
-
-    quantidade_presenteada = instance.quantidade_presenteada # vai sempre alterar
-    quantidade_recebida = instance.nome_presente.quantidade_recebida # vai sempre alterar
-
-    # salvar no model Presente
-    instance.nome_presente.quantidade_recebida = quantidade_recebida + quantidade_presenteada
-    quantidade_recebida = instance.nome_presente.quantidade_recebida
-    quantidade_restante_signal = quantidade_desejada - quantidade_recebida
-    instance.nome_presente.quantidade_restante = quantidade_restante_signal
-    instance.nome_presente.save()
-
+def antes_de_salvar_presente(sender, instance, **kwargs):    
+    presente = instance.nome_presente
+    presente.quantidade_recebida += instance.quantidade_presenteada
+    presente.quantidade_restante = presente.quantidade_desejada - presente.quantidade_recebida
+    presente.save()

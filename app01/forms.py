@@ -1,5 +1,5 @@
 from django import forms
-from .models import Presente, PessoaPresente
+from .models import PessoaPresente
 
 class MF_CadastrarPresente(forms.ModelForm):
     class Meta:
