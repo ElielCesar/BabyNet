@@ -46,15 +46,8 @@ class PessoaPresente(models.Model):
     
 @receiver(pre_save, sender=PessoaPresente)
 def antes_de_salvar_presente(sender, instance, **kwargs):
-    quantidade_desejada = instance.qtd_desejada # não pode alterar
 
-    quantidade_presenteada = instance.quantidade_presenteada # vai sempre alterar
-    quantidade_recebida = instance.nome_presente.quantidade_recebida # vai sempre alterar
-
-    # salvar no model Presente
-    instance.nome_presente.quantidade_recebida = quantidade_recebida + quantidade_presenteada
-    quantidade_recebida = instance.nome_presente.quantidade_recebida
-    quantidade_restante_signal = quantidade_desejada - quantidade_recebida
-    instance.nome_presente.quantidade_restante = quantidade_restante_signal
-    instance.nome_presente.save()
-
+    presente = instance.nome_presente
+    presente.quantidade_recebida += instance.quantidade_presenteada
+    presente.quantidade_restante = presente.quantidade_desejada - presente.quantidade_recebida 
+    presente.save()
